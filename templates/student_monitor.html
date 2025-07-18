@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Live Monitoring - Student Camera</h2>
+<img src="{{ url_for('video_feed', student_username=username) }}" width="640" height="480">
+<br>
+<a href="{{ url_for('student_dashboard') }}">⬅ Back to Dashboard</a>
+{% endblock %}

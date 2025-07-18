@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="inner-box">
+    <h1>Welcome, {{ username }}</h1>
+
+    <div class="session-info">
+        <a href="{{ url_for('student_monitor') }}">
+            <span class="camera-icon">📷</span> Start Monitoring
+        </a>
+    </div>
+
+    <h2>Notifications from Tutor:</h2>
+    {% for note in notifications %}
+        <div class="notification">
+            <p>{{ note.message }}</p>
+            <small>{{ note.timestamp }}</small>
+        </div>
+    {% else %}
+        <p>No notifications yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

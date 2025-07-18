@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Live Student Video Feed</h2>
+<!-- Use the actual student_username dynamically if multiple students supported -->
+<img src="{{ url_for('video_feed', student_username='student1') }}" width="640" height="480">
+<br>
+<a href="{{ url_for('dashboard') }}">⬅ Back to Dashboard</a>
+{% endblock %}

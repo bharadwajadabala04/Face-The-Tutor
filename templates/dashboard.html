@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<script>
+    setInterval(() => {
+        location.reload();
+    }, 10000);
+</script>
+
+<h1>Welcome, {{ tutor }}</h1>
+
+<div class="link-box">
+    <strong>Share this link with students to join your session:</strong><br>
+    <input type="text" value="{{ join_link }}" readonly onclick="this.select();">
+</div>
+
+<h2>Live Monitoring</h2>
+<a href="{{ url_for('monitor') }}">📹 Go to Monitoring Page</a>
+
+<h2>Student Notifications</h2>
+{% if notifications %}
+    {% for note in notifications %}
+        <div class="notification">
+            <strong>{{ note.student }}</strong>: {{ note.message }}<br>
+            <small>{{ note.timestamp }}</small>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No notifications yet.</p>
+{% endif %}
+{% endblock %}

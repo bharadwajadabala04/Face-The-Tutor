@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FaceTheTutor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="navbar">
+        <strong>FaceTheTutor</strong>
+        <div>
+            <a href="{{ url_for('dashboard') if session.get('role') == 'tutor' else url_for('student_dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('monitor') if session.get('role') == 'tutor' else url_for('student_monitor') }}">Monitor</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="footer">
+        &copy; 2025 FaceTheTutor | All rights reserved
+    </div>
+</body>
+</html>
